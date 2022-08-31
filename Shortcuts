@@ -1,14 +1,14 @@
-CTRL+L  --> clear command
-CTRL+A  --> move the cursor to the beginning of the line
-CTRL+E  --> move the cursor at end of the line
+CTRL+L --> clear command
+CTRL+A --> move the cursor to the beginning of the line
+CTRL+E --> move the cursor at end of the line
 
 CTRL+F --> cursor forward one character at a time
 CTRL+B --> cursor backward one character at a time
 ALT+F  --> forward one word at a time
 ALT+B  --> backward one word at a time
-CTRL+K kill the text from current cursor location until the end of the line
-CTRL+U kill the text from current cursor location to the beginning of the line
-ALT+D kill the text from the current cursor location through the end of the word -->
-CTRL+W kill the text from the current cursor location through the beginning of the word <--
+CTRL+K --> kill the text from current cursor location until the end of the line
+CTRL+U --> kill the text from current cursor location to the beginning of the line
+ALT+D  --> kill the text from the current cursor location through the end of the word -->
+CTRL+W --> kill the text from the current cursor location through the beginning of the word <--
 
-CTRL+Y If we make mistake using one of the the above, use this to revert
+CTRL+Y --> If we make mistake using one of the the above, use this to revert
