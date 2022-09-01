@@ -1,0 +1,20 @@
+cat .bash_history
+
+history --> showing the history
+History -c --> removing the entire history
+
+Echo $HISTSIZE --> printing the no. of history commands saved in the memory
+echo $HISTFILESIZE --> printing the no. of commands saved in the history file (~/.bash_history)
+
+!! --> rerunning the last command from the history
+!20 --> unning  a specific command from the history (ex: the 20th command)
+!-10 --> running the last nth (10th) command from the history
+
+ 
+If you do not want your command that you typed displayed in history do the following:
+
+HISTCONTROL is set ignoreboth or ignorespace, not ignoredups
+Echo $HISTCONTROL --> You can check how is set it up
+HISTCONTROL=ignoreboth or
+echo "HISTCONTROL=ignoreboth"  >> .bashrc --> Allows you to write this in .basrc to be persistent. (even machine restarted, it will still applied.)
+And then type the command giving one space --> it will not diplayed in history.
