@@ -12,3 +12,6 @@ ALT+D  --> kill the text from the current cursor location through the end of the
 CTRL+W --> kill the text from the current cursor location through the beginning of the word <--
 
 CTRL+Y --> If we make mistake using one of the the above, use this to revert
+
+CTRL+D --> Exit the terminal
+CTRL+C --> cancels or terminates the currently-running program
