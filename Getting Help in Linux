@@ -1,0 +1,48 @@
+man ls --> man uses by default less command to go through pages with additional shortcuts:
+h --> getting help
+q --> guit the man pages
+Arrowkey up and down --> one line up and down
+Enter --> display next line
+CTRL+F or Space --> go to next page
+CTRL+B --> back to previous page
+G --> go to end of the page
+g --> go to beginning of the page
+/"word" --> search forward for a string
+?"word" --> search backwards for a string
+n --> takes you to the next match you search for
+N --> takes you to the previous match you search for
+
+
+# checking if a command is shell built-in or executable file (type command)
+type rm  --> rm is /usr/bin/rm
+type cd  --> cd is a shell builtin
+type df  --> shows the path of df command
+type apt --> shows the path of apt command
+
+
+If the command is shell builtin, use the Help command as below:
+help cd
+help alies
+
+If the command is not a shell builtin or executable files, use the Help as below:
+ls --help
+rm --help
+cd --help
+
+
+# searching for a command, feature or keyword in all man Pages
+man -k ifconfig --> Search and dislay all ifconfig words in man page
+man -k uname --> Search and dislay all uname words in man page
+man -k "copy files" --> Search and dislay all "copy files" words in man page.
+
+Below commands do the same as above man -k                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+apropos ifconfig
+apropos uname
+apropos "copy files" -- dene bakalım string çalışıyor mu
+
+ 
+Whatis --> display short description for the command
+whatis who
+Whatis ls
+Whatis rmdir
+Whatis pwd
