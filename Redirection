@@ -1,0 +1,43 @@
+## Redirection
+
+There are three standard streams are communication channels between a computer program and its environment
+Standard Input 0 
+Standard Output 1
+Standard Error 2
+
+date > today.txt --> Date redirected to the today.txt 
+ncal -3 > cal.txt
+date > cal.txt --> This overwrite it, replace what is inside cal.txt, put today date
+ls -l /usr/bin > list.txt
+
+When we redirect output into a file using > any existing contents in the file are overwritten.
+If we want to keep the existing contents in the file and add new content to the end of the file, use >> when redirecting.
+
+date >> cal.txt
+
+echo meaw > cat.txt --> Create a new file with writing something in it.
+
+When we type just cat or sort command, with no file, read standard input.
+cat
+sort 
+cat < list.txt --> pass through the contents of list.txt to the cat as input.
+
+cat < dog.txt > sounds.txt --> get the contents of dog.txt as input and write in sounrds.txt as output.
+cat < dog.txt >> sounds.txt --> We can also append it.
+
+cat noexistfile 2> error.txt --> IT writes the error into error.txt as "no such file ort directory"
+ls -zz 2> error.txt --> Append this error too 
+
+Orders matter: (When redirecting both standard output and error, make sure standard output comes FIRST)
+cat list1.txt list2.txt > mylist.txt 2> error.txt
+
+If we want to redirect both standard output and standard error to the same file, use "2>&1"
+ls docs > output.txt 2>&1 --> any result will be written to the output.txt
+Newer version of distros support &> also. 
+"ls docs > output.txt &>" is the same with "ls docs > output.txt 2>&1"
+
+# tee command (T Pipe)
+  Reads standard input and copies it both to standard output AND to a file. This allows us to capture information part of the way through a pipeline, without interrupting the flow.
+  cat file1 file2 | tee file3 | wc --> will display the word count info
+  cat file1 file2 > file3 | wc -->It DOES NOT work!
+  du -ha /usr/bin/  | sort -h | tee sizes | tail -3 --> write all files and directories with sizes into sizes file and list 3 largest file or directories on the screen
