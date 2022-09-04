@@ -1,0 +1,114 @@
+## LOCATE ##
+
+if you cannot see locate command on terminal, you will install with "sudo apt mlocate"
+You may need to update locate database. By default once a day updated. (If you delete someting 10 minutes ago, locate command will find delete item.) 
+sudo updatedb --> updating the locate db
+
+locate /user/bin/less??? --> Find the names less and three charaters on its tail
+locate Workfile -i --> -i option will ignore case-sentivity
+locate workfile -il5 --> -l option will limit to specific number of matches, in this case 5 matches
+locate workfile -ile --> -e option will display correct result even if database is not updated for quick changes
+locate -b '\shadow' --> If we use \ before the word that we are looking for, it finds only start with that word, otherwise may finde rainshadow too
+locate -e myfile --> If you remove the file, locate will still show for one day (because it uses database), we can use -e to see it really exist or not!
+locate -i Yourfile -->  -i ignores case sentivity
+locate -b -r '^shadow\.[0-9]' --> -r is regex (we have to use ^ ) it shows all shadow.0 to 9 all file names if exist!
+
+locate option:
+locate -S ??  --> displaying statistics
+locate -i filename --> the filename is case insensitive
+locate -b '\filename'  --> finding by exact name
+locate -e -->  will display correct result even if database is not updated for quick changes
+locate -l --> will limit to specific number of matches
+locate -r 'regex' --> finding using regular expressions
+
+
+## FIND ##
+
+Find command more powerful than locate command but slower
+find --> will list every single file and directory nested in our current working directory
+find . --> searches hidden files in the current directory
+find /dir2 --> will list all nested files and directories under /dir2
+find . -type f -name "*.py" --> searches only python file extensions in the current directory
+find -type f will limit the search to files
+find -type d will limit the search to directories
+find -iname mYfiLE.txT --> with i option it ignores case sensitivity
+find -name myfile cannot find anything, we should type "find -name myfile*"
+find -name "*rep*" --> find anything include rep in it
+find -name myfile.txt -delete --> it finds myfile.txt and delete it
+sudo find /etc/ -name passwd -ls --> shows details of any files name passwd
+find /etc/ -type d --> search for directories "recursively"
+find /etc/ -type d -maxdepth 2 --> find any directories maximum 2 levels deep
+find /etc/ -type d -maxdepth 2 -perm 755 --> Search for exact permission 755 in directories with max 2 levels deep
+find /etc/ -type d -maxdepth 2 -perm 755 | wc -l --> shows how many directories exist with wc -l
+
+find ~/Desktop -name f "*.txt" --> find all file names end with .txt in current user's directory
+find -iname f "*plan*" --> find the file names include plan with case insensitive (-i option)
+find ~/Desktop/ -name "*[0-9]*" --> finde any files include digits in it in my Desktop directory
+
+find -size -50M --> find all files under 50MB
+find -size 20k --> find all files are exactly 20KB
+find -size +1G --> find all files larger than 1GB
+sudo find /var -type f -size +5M -size -10M -ls --> Shows files between 5MB and 10MB
+
+find -empty --> find empty files and directories in the current directory
+find -empty -type f --> find empty files in the current directory
+
+find -user makgul --> find the match files and directories that belong to makgul user(owner of the files and directories)
+find /var/ -type f -user makgul -ls --> shows files that has owner name makgul
+sudo find /etc/ -type f -not -group root -ls --> shows files that are not a member of root group
+
+locate command is faster but runs from database, and it updates once a day, if you create new file, you cannot find with locate command, before that you should run updatedb in order to trigger manuelly
+
+## which (showing command path)
+  which command
+  which -a command
+  which ls --> shows the exact path of ls command
+  which rm --> shows the exact path of rm command
+  which -a find --> find the path which also includes hidden
+  which pwd ifconfig find grep firefox --> shows all 5 paths
+
+## Timestamps
+  mtime --> when a file was last modified which requires any changes in its contents, inside of a file
+  ctime --> when a file was last changed, this occurs anytime mtime changes but also when we rename a file, move it, or alter permissions.
+  atime --> when a file is read by an application or a command like cat
+
+Note: when we rename a file, move it, or alter permissions --> mtime will not change!
+
+  mtime --> ls -lm
+  ctime --> ls -lc
+  atime --> ls -lu
+
+touch last_week -d "1 week ago" --> it creates file with the date of exactly one week ago
+touch last_month -d "1 month ago" --> it creates file with the date of exactly one month ago
+touch three_days_ago -d "3 days ago" --> it creates file with the date of exactly three days ago
+touch ten_minutes_ago -d "10 minutes ago" --> it creates file with the date of exactly 10 minutes ago
+
+## finding by time 
+  find -mmin +30 --> find the files which modified more than 30 minutes ago.
+  find -mmin -30 --> find the files which modified less than 30 minutes ago.
+  find -cmin +30 --> find the files which changed more than 30 minutes ago.
+  find -amin -30 --> find the files which accessed less than 30 minutes ago.
+
+  find -mtime +1 --> find the files which modified more than 1 day ago.
+  find -ctime -5 --> find the files which changed less than 5 days ago.
+  find -atime -3 --> find the files which accessed less than 3 days ago.
+
+## find with logical operators (-and -or -not)
+  find -mmin -60 -not -name "*.log" --> find anything except file extension log and the file modified less than 60 minutes
+  find -mmin -60 ! -name "*.log" --> find anything except file extension log and the file modified less than 60 minutes
+  find -type d -and -name "*[1-9]*" --> find directories with include any digits in its name
+  find -type d -name "*[1-9]*" --> find directories with include any digits in its name
+  find ~ -iname "tue*" -or -iname  "mon*" --> find any files and directories start with tue or mon case insensitive
+
+## find and exec
+  find -type f -empty -exec ls -l '{}' ';' --> find all empty files and long list them
+  find -type f -user makgul -exec ls -l '{}' ';' --> find all files that are owned by makgul and display with ls -l
+  find ! -empty -exec cp '{}' '{}_BACKUP  ';'  --> find the files that are not empty and make copies with the name is ending _BACKUP
+  find -empty -exec rm '{}' ';' --> find and delete all empty files under current directory without asking anything
+  find -empty -ok rm '{}' ';' --> find and delete all empty files under current directory (-ok will ask each file one by one, we can say yes or no)
+  sudo find /etc -type f -mtime 0 -exec cat {} \; --> Displays the all contents of the last one day modified files with cat command
+  sudo find /etc/ -mtime -7 -type -exec cp {} /root/backup \;  --> Find files in /etc directory which are modified last 7 days and copy into /root/backup location
+
+# find and xargs
+  find -type f -empty -exec ls -l '{}' ';' and "find -empty | xargs ls -l" are the same result (exec one runs for each element, xargs runs for once)
+  find -name "chapter[1-4].txt" | xargs cat > fullbook.txt --> find the chapter1 through chapter4 files and combined contents to a file called fullbook.txt
