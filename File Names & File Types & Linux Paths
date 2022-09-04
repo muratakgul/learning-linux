@@ -1,0 +1,74 @@
+## Linux File types (7 file types exist)
+
+ls -F (F shows file type with icons and understand all file types like named pipes, socket etc.) 
+
+- regular file
+d directory
+l link
+c special file or device file
+s socket
+p Named pipe
+b block device
+
+ 
+## Reserved Filenames:
+    /    - the root directory (slash)
+     .   - current directory (period)
+     ..  - parent directory (double period)
+     ~  - your home directory (tilde)
+
+## Extensions: may be used to identify types of files
+     libc.a              - Archive, library file
+     program.c       - C language source file
+     alpha2.f          - Fortran source file
+     xwd2ps.o       - Object/executable code
+     mygames.Z    - Compressed file
+
+## Hidden Files: have names that begin with a dot (.) For example:
+     .cshrc      .login      .mailrc     .mwmrc  
+
+ls -F     --> Displays file types at the end of the file
+/           --> Finish with / and blue, it is a directory
+If it is black font e.g linux.txt, it is a normal file
+@        --> Finish with @ and light blue, it is a sym link
+=         --> Finish with =, it is a socket
+Pipe |  --> Finish with |, it is a named pipe
+char device --> yellow with black background
+
+file /run/* --> Displays all file types under that specific directory
+file /etc --> Displays that is the directory
+file /etc/passwd --> Displays that is norma file (ASCII Text)
+
+File name length: can be up to 256 characters
+File and directory names are case sensitive. File1 and file1 is not the same!
+
+## Linux Paths
+.        => the current working directory
+..       => the parent directory
+~       => the user's home directory
+
+cd      => changing the current directory to user's home directory
+cd ~   => changing the current directory to user's home directory
+cd -    => changing the current directory to the last directory
+cd /path_to_dir    => changing the current directory to path_to_dir
+pwd   => printing the current working directory
+
+cd
+Go to current user's directory from anywhere you are
+cd /
+Go to root directory
+cd ~
+Go to your home directory
+cd ..
+ Go to previous directory
+
+## Installing tree
+sudo apt install tree
+tree directory/   => Ex: tree .
+tree -d .             => prints only directories
+tree -f .             => prints absolute paths
+
+## Absolute and Relative Path
+cd /var/log -- absolute path to directory (Provide exact path from the root / )
+cd /var
+cd log -- relative path (just type the name of the file or directory under spesific directory)
