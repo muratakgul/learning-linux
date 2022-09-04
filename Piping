@@ -1,0 +1,46 @@
+## Piping |
+
+previous command output will be input for second side of pipe! And second pipe output will be input for third pipe and so on!
+
+ls -lSh /etc | head --> Sort by size biggest on top and human readeable and head shows first 10 lines!
+ls -lSh /etc | head -n 20 | tail -n 1 --> displays 20th line only
+ps -ef | grep sshd              # checking if sshd is running
+ps aux --sort=-%mem | head -n 3  # showing the first 3 process by memory consumption
+ls -l /usr/bin | less --> list /usr/bin result with less
+ls -l /usr/bin | wc -l --> count the result
+cat -n /var/log/auth.log | grep -a "authentication failure" --> displays authenticaion failures
+cat -n /var/log/auth.log | grep -a "authentication failure" | wc -l --> display how mnay lines that found with the criteria
+
+wc /etc/passwd --> displays line number, word number and byte value
+wc -w /usr/share/dict/american-english --> displays word count
+wc -c /usr/share/dict/american-english --> displays characters count
+
+who | wc -l --> displays how many users logged in
+
+cat -n /var/log/auth.log | grep -ai "authentication failure" > auth.txt --> piping and redirection together
+
+
+## tr command is used to translate or delete character in a file (sed command is more advanced than tr command)
+  cat file1 | tr a-z A-Z --> translate all lowercase chacters into uppercase in file1
+  cat file2 | tr -d s --> delete all lowercase s character in file2
+  cat file3.txt | tr -d [:alpha:] --> delete all lowercase or uppercase alphabetic characters
+  cat file3.txt | tr -d [:blank:] --> delete all spaces in the file
+
+## tac and rev commmands
+  tac file1 --> vertically reverse the words
+  rev file1 --> horizontally reverse the words
+
+cat countryname | head -20 | tail -10 --> to get 11th to 20th country name
+ls /usr/bin -lh | sort -k5h --> we can define to sort which column with -k option, the 5th one which is size column, -h option make human readable and give the correct result
+ls /usr/bin -lh | sort -k5h | tail -3 --> to get the largest 3 file
+ls /usr/bin -lh | sort -k5hr | head -3 --> to get the largest 3 file
+
+# du command (estimate file space usage)
+  du -ha /usr/bin/ --> folder and files with their size (option a is for all I think)
+  du -ha /usr/bin/  | sort -h | tail -3 --> to get the largest 3 file (includes /usr/bin size as biggest)
+
+# tee command (T Pipe)
+  Reads standard input and copies it both to standard output AND to a file. This allows us to capture information part of the way through a pipeline, without interrupting the flow.
+  cat file1 file2 | tee file3 | wc --> will display the word count info
+  cat file1 file2 > file3 | wc -->It DOES NOT work!
+  du -ha /usr/bin/  | sort -h | tee sizes | tail -3 --> write all files and directories with sizes into sizes file and list 3 largest file or directories on the screen
