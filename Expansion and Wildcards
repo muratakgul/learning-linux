@@ -1,0 +1,70 @@
+## Expansion and Wildcards
+
+Asterisk * Wildcard
+	* represents zero to more characters
+	ls *.html *.txt  --> List the files with extension of .html and .txt
+	rm *xyz  --> delete any files end with xyz 
+	rm a* --> delete any files start with a
+
+Question Mark ? Wildcard
+	? represent only one character
+	ls *.???  --> list any names but file extension only three characters
+	
+Square Brackets [] Wildcard
+	ls pic [123].png --> pic1.png, pic2.png, pic3.png
+	ls file[0-9] --> file1, file2, file3, up to file9
+	ls [A-F]* --> will match only files begin with a capital A, B, C, D, E, or F
+	ls jones[0-9][0-9][0-9] --> list names start with jones and 3 digit numbers after
+
+Caret ^ Wildcard
+	ls [^a]* --> will match any files that do NOT start with "a"
+	ls [^0-9]* --> will match any files that do NOT start with a numeric digit (0-9)
+	
+Brace {} Expansion
+	touch page{1,2,3} --> page1, page2, page3
+	echo {Mon,Tue,Wed,Thu,Fri}_Planner.txt --> Mon_Planner.txt Tue_Planner.txt Wed_Planner.txt Thu_Planner.txt  Fri_Planner.txt
+	echo {Mon,Tue,Wed,Thu,Fri}_{AM,PM}.txt --> Mon_AM.txt Mon_PM.txt Tue_AM.txt Tue_PM.txt Wed_AM.txt Wed_PM.txt...
+	touch journal{1..365}.txt --> journal1.txt, journal2,txt, up to journal365.txt will be created.
+	echo{2..10..1} --> 2 3 4 5 6 7 8 9 10
+	echo {2..10..2} --> 2 4 6 8 10
+	echo {2..10..3} --> 2 5 8
+	echo {a..e} --> a b c d e 
+	echo [a-e] --> [a-e]
+	mkdir -p {Mon,Tue,Wed,Thu,Fri,Sat,Sun}/{Breakfast,Launch,Dinnder} --> Creates all meals directories under specific day directories
+	echo {x,y{1..3},z} --> x y1 y2 y3 z
+
+Tilde ~ Expansion 
+	echo ~ --> displays current user's home directory
+	echo ~john --> displays John's home directory if it is exist -- /home/john
+	echo ~dog --> If there is no user named dog, it will display just ~dog on the screen
+	mv file1 ~/folder1 --> Move file1 to /folder1 under current user's home directory.
+
+Arithmetic Expression $((expression)) 
+	echo $((10+3)) --> 13
+	echo $((10-3)) --> 7
+	echo $((10*3)) --> 30
+	echo $((10/3)) --> 3 (Integer results always)
+	echo $((10**3)) --> 1000
+	echo $((10%3)) --> 1 (remainder)
+	echo $((10*3-2)) --> 28
+	echo $((10*(3-2)) --> 10
+
+Quoting ' " (Single and Double Quotes)
+	Double Quote: If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters except for dollar sign ($), backslash (\), abd backtick (`)
+	Single Quote: Nothing has a special meaning with single quote
+	echo $hit --> there is no variable called hit so return nothing
+	echo $PATH --> displays the path variable result on the screen
+	echo "holy $hit" --> displays only holy on the screen
+	echo 'holy $hit' -->displays holy $hit on the screen
+	echo "today is $(date)" --> displays today is Mon 19......
+	echo "hello there{1,2,3}" --> hello there{1,2,3}
+	echo hello there{1,2,3} --> hello there1 there2 there3
+	echo "$((2+2)) is 4" --> 4 is 4
+	echo '$((2+2)) is 4' --> $((2+2)) is 4
+
+Command Substitution $(command)
+	Be careful with single quote (') and backtick (`)
+	echo "today is $(date)" --> will print "today is Thu 02 Sep 2022..."
+	echo HELLO THERE whoami --> HELLO THERE whomai
+	echo HELLO THERE $(whoami) --> HELLO THERE john
+	echo today is `date` --> will print "today is Thu 02 Sep 2022..."
