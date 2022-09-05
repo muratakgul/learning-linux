@@ -7,4 +7,5 @@
 [Expansion & Wildcards](https://github.com/muratakgul/learning-linux/blob/master/Expansion%20and%20Wildcards) <br/>
 [Piping](https://github.com/muratakgul/learning-linux/blob/master/Piping) <br/>
 [Redirection](https://github.com/muratakgul/learning-linux/blob/master/Redirection) <br/>
-[Finding Things](https://github.com/muratakgul/learning-linux/blob/master/Finding%20Things)
+[Finding Things](https://github.com/muratakgul/learning-linux/blob/master/Finding%20Things) <br/>
+[Grep Command](https://github.com/muratakgul/learning-linux/blob/master/Grep%20Command)
