@@ -1,0 +1,54 @@
+## GREP
+
+Grep Options:
+-n          # => print line number
+-i          # => case insensitive
+-v          # inverse the match
+-w          # search for whole words
+-a          # search in binary files
+-R          # search in directory recursively
+-c          # display only the no. of matches
+-C n        # display a context (n lines before and after the match)
+
+
+grep "mail" colors.txt --> find the word mail in colors.txt and also any word include mail such as mailing, email etc.
+grep "mail" colors.txt -w > find only word called mail, not email or mailing etc.
+grep "mail" colors.txt -i --> -i option allows case insensitivity
+
+grep -ri "murat" --> find the word murat in it and also display with the directory/file path and search case insensitive
+grep -ri "egg" launchbox/ --> search egg in launcbox directory with case insensitive
+grep -ri "parm[ae]san" launcbox/ --> seach for parmesan and parmasan both in lunchbox directory
+grep -ri "blue" ~ --> search for blue in my whole home directory
+sudo grep -R 127.0.0.1 /etc/ --> search for loopback address recursive in /etc directory (search for directories and FILES too)
+sudo netstat -tupan | grep 53 --> List all open ports which include 53 port numbers in it
+
+grep "myself" songs -ic --> -c option provides the number of myself word in songs
+grep "hello" songs -i -A3 -B2 --> Add three lines after and two lines before each match
+grep "hello" songs -i -C4 --> Add 4 lines for before and after the matches
+grep "hello" songs -i -nC4 --> Add 4 lines for before and after the matches and displays the line number with -n option
+grep "6" songs.txt --> find matches number 6 in songs.txt
+grep "6" songs.txt -w --> find how many matches number 6 in songs.txt
+grep "6" songs.txt -wn --> find how many matches number 6 in songs.txt and display the first result line number in front
+grep "mail" colors.txt -m3 --> display first 3 matches
+
+## Grep with Regex
+grep 'p....' songs.txt -i --> find matches start with p and 4 more characters exactly . also includes space as one characters
+grep "^I" songs.txt --> ^ regex tells matches the start of a line
+grep ")$" songs.txt --> matches the end of a file with $ regex
+grep "2[1-6]" songs.txt --> matches 21 through 26
+grep "2[^1-6]" songs.txt --> matches other than 21 through 26
+grep "G[aeiou]" songs.txt -i --> matches start with g and any wovel chacters comes after
+
+## Grep with Extended Regex
+grep "?" songs.txt --> find matches with ?
+grep "birds?" -wE songs.txt --> find the matches with bird and birds -- ? here is Extended regex
+grep "[aeiou]{2}" -E songs.txt --> find matches 2 wovels next to each other 
+grep "[aeiou]{3}" -E songs.txt --> find matches 3 wovels next to each other
+grep "[aeiou]{2,4}" -E songs.txt --> find matches 2 to 4 wovels next to each other
+
+## more grep
+ps aux | grep "sound" -i --> find any match process name sound
+man grep | grep "count" -i --> find matches count word in man grep page
+find ~ -name "*.txt" ! -empty -type f -exec grep -l "yellow" '{}' ';' --> find not empty files and find the matches yellow and -l option tells in which file
+find ~ -name "*.txt" ! -empty -type f -exec grep -ln "yellow" '{}' ';' --> -n options shows the line numbers for matches 
+
