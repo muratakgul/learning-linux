@@ -1,0 +1,44 @@
+
+root directory (/ - root)  --> Starting point for the file system, all file structure is under / (Root directory)
+/home directory(~ - home)  --> contains all users under it separate
+
+pwd --> print working directory --> where am I? --> displays where you are right now as path
+id --> display information about the currently logged-in user
+
+ls /
+ls ~
+ls /bin
+ls -lhS --> display human readable sorting by size
+ls -la ~ --> listing all files and directories including hidden ones on user's home directory
+ls -ld /etc  --> -d option displays information about the directory, not about its contents
+ls -h /etc  --> -h option displays the size in human readable format
+ls -Sh /var/log --> -S option displays sorting by size
+du -sh ~ --> Note: ls does not display the size of a directory and all its contents. Use du instead
+ls -lX /etc --> -X option displays sorting by extension
+ls --hide=*.log /var/log --> --hide option hides some files, in this case any files has log extension
+ls -lR ~ --> -R options displays directories recursively
+ls -li /etc --> -i option displays the inode number
+ls -lt --> - t option displays the output sorted by modification time, newest files first
+ls -ltu --> -u option displays and sorts by atime
+ls -ltu --reverse or ls /ltru --> -r option reversing the sorting order
+ls -ltra --> reverse order by modification time with hidden files
+ls -l --sort=time
+ls -l --sort=size
+
+## Changing directories with cd
+cd Desktop/ --> go to Desktop directory
+cd .. --> back up one level
+cd / --> go to root directory
+cd ~ --> go to current user's home directory
+
+Important Directoris: 
+/
+/home
+/bin 
+/usr/bin 
+/etc
+/var
+/dev
+/media
+/boot
+/root
