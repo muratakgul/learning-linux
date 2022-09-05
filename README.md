@@ -8,4 +8,5 @@
 [Piping](https://github.com/muratakgul/learning-linux/blob/master/Piping) <br/>
 [Redirection](https://github.com/muratakgul/learning-linux/blob/master/Redirection) <br/>
 [Finding Things](https://github.com/muratakgul/learning-linux/blob/master/Finding%20Things) <br/>
-[Grep Command](https://github.com/muratakgul/learning-linux/blob/master/Grep%20Command)
+[Grep Command](https://github.com/muratakgul/learning-linux/blob/master/Grep%20Command) <br/>
+[Navigation Commands](https://github.com/muratakgul/learning-linux/blob/master/Navigation%20Commands)
