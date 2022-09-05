@@ -1,0 +1,27 @@
+
+touch file1--> create a new file called file1
+touch file2 file3 --> create two files at the same time
+touch ../file4 --> create file4 file one level back up directory
+touch ~/file5 --> create file5 under current user's home directory
+
+touch (in man page) --> change file timestamps (update the access and modification times of each file)
+touch file.txt --> creating an empty file if it does not exist, update the timestamps if the file exists
+touch -a file --> changing only the access time to current time (because access time metadata is changed, change time will change too)
+touch -m file --> changing only the modification time to current time
+touch -m -t 201812301530.45 a.txt --> changing the modification time to a specific date and time
+touch -d "2010-10-31 15:45:30" a.txt -->  changing both atime and mtime to a specific date and time
+touch a.txt -r b.txt --> changing the timestamp of a.txt to those of b.txt
+
+touch {a..f} dene
+
+
+file cheatsheet --> pdf
+file abc.jpg --> jpeg
+file file6 --> if result empty that means it is a normal file
+if we change the jpg to txt in GUI, it still shows the metadata as jpeg in CLI
+When we create an empty file, write html tags/codes in it and save it. When you type "file" command with file name, it will display it as html file instead of normal file
+
+mkdir dir3 --> create directory called dir3
+mkdir first/second/third gives error, we should use --parent (-p) option to create nested directories
+mkdir -p mydir1/mydir2/mydir3 --> creating a directory and its parents as well
+mkdir dir{1..7} --> create seven directories named dir1 to dir7
