@@ -13,4 +13,5 @@
 [Creating Files & Folders Commands](https://github.com/muratakgul/learning-linux/blob/master/Creating%20Files%20%26%20Folder%20Commands) <br/>
 [Copying & Moving & Deleting](https://github.com/muratakgul/learning-linux/blob/master/Copying%20%26%20Moving%20%26%20Deleting) <br/>
 [System Utility Commands](https://github.com/muratakgul/learning-linux/blob/master/System%20Utility%20Commands) <br/>
-[Working with Files](https://github.com/muratakgul/learning-linux/blob/master/Working%20with%20Files)
+[Working with Files](https://github.com/muratakgul/learning-linux/blob/master/Working%20with%20Files) <br/>
+[Hard Link and Soft Link (Symlink)](https://github.com/muratakgul/learning-linux/blob/master/Hard%20Link%20and%20Soft%20Link%20(Symlink))
