@@ -5,6 +5,13 @@ Standard Input 0
 Standard Output 1
 Standard Error 2
 
+# output redirection
+ps aux > running_processes.txt --> writes running proccesses into the specified file
+who -H > loggedin_users.txt --> writes logged,in users to the system into the specified file
+
+# appending to a file
+id >> loggedin_users.txt --> appending logged-in user into the specified file.
+
 date > today.txt --> Date redirected to the today.txt 
 ncal -3 > cal.txt
 date > cal.txt --> This overwrite it, replace what is inside cal.txt, put today date
