@@ -1,0 +1,51 @@
+
+for RHEL, CentOS, Amazon Linux : "sudo yum install java -y"
+for Ububtu: "sudo apt install java -ya"
+
+Follow below for the current version:
+sudo yum install httpd -y -- defaullt apache in linux library
+sudo service httpd start -- start apache
+ps -ef ! grep httpd --  to control apache httpd service is running or not
+
+Follow below for the old version:
+Package:
+apache-tomcat-8.5.69.tar.gz
+wget url
+Extract file
+tar -zxvf apache-tomcat-8.5.69.tar.gz -- zip file, extract, verbose, file
+
+
+RHEL or CentOS:
+yum install (package name)
+yum remove (package name)
+yum update (package name)
+yum info (package name)
+yum list available
+yum list installed
+
+Exapmles:
+yum install unzip -y
+yum install telnet -y
+yum install wget -y
+yum remove whet -y
+yum update tree -y
+yum info unzip
+yum list installed
+yum list installed l grep tree
+yum list available 1 grep wget
+
+Ubuntu ve Debian base distros:
+sudo apt update  --> updating the package index (doesn't install/uninstall/update any package)
+sudo apt install apache2  --> installing or updating a package named apache2
+sudo apt list --upgradable  --> listing all upgradable packages
+sudo apt full-upgrade  --> upgrading all applications
+sudo apt full-upgrade -y   -->  assume yes to any prompt (useful in scripts)
+sudo apt remove apache2  --> removing a package
+sudo apt purge apache2  --> removing a package and its configurations
+sudo apt autoremove  -->  removing dependencies that are not needed anymore
+sudo apt clean  --> removing the saved deb files from the cache directory (var/cache/apt/archives)
+sudo apt list  --> listing all available packages
+sudo apt list | wc -l --> listing all available packages number
+sudo apt list | grep nginx  --> searching for a package
+sudo apt show nginx  --> showing information about a package
+sudo apt list --installed  --> listing all installed packages
