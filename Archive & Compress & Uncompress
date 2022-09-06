@@ -1,0 +1,25 @@
+
+sudo tar -czvf etc.tar.gz /etc/  --> -v option shows the result on the screen verbosely. It compressed in my current directory.
+-c option means create an archive, -z option tells the compress the archive (gzip compression) -f option allows you the specify the file name of archive
+
+sudo tar -czvf /temp/etc.tar.gz /etc/ --> Compress in temp directory
+sudo tar -fczv /temp/etc.tar.gz /etc/ --> If -f option in front, it gives you an error!
+
+sudo tar -cjvf etc.tar.bz2 /etc/ --> compress with bz2 instead of gzip (bzip uses -j instead of -z)
+
+tar -czvf archive.tar.gz /etc/passwd /etc/group /var/log/dmesg /etc/ssh --> It archives and compresses 3 files and 1 directory at the same time!
+
+tar --exclude='*.mkv' --exclude='.config' --exclude='.cache' -czvf myhome.tar.gz tilda --> excludes 3 file types before compressing if we do not want to archive!
+
+tar -xzvf etc.tar.gz --> -x option allows you to uncrempress compressed file.
+
+tar -xjvf etc.tar.bz2 -C /mydir2 --> We can uncompress to the other directory with a -C option!
+
+sudo du -sh /etc/ --> Shows exact disk usage of /etc/ directory -- 12MB
+
+tar.bz2 1.1MB compressing has low disk space than tar.gz 1.3MB
+
+tar -tf etc.tar.bz2 | grep sshd_config --> to see sshd.config file is inside of compressed file!
+
+tar -cjvf etc-$(date +%F).tar.bz2 /etc/ --> If you have multiple compress files this allows you to put the current date in the name (shell scripting stuff)
+date +%F --> shows the current date!
