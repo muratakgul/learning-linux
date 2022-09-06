@@ -1,0 +1,28 @@
+
+ls -li --> We can see inode numbers with -i options in ls
+to see how many hardlink for the file run "stat abc.txt"
+Every file or directory has an inode associated with name and number.
+We can create multiple hardlink for the file and directory using "ln" command
+
+ln abc.txt xyz.txt --> creates hardlink between two files. Both will have the same inode. We can delete one of them, only decrease the link number by one. The other file will stay like that.
+find . -inum 276654 --> displays all files with this inode in my current directory!
+
+NOTE: Hardlinks cannot cross the file system bounderies, or disk partitions. ln /etc/ dir1 --> Hard link not allowed for directory error message will pop up!!
+
+find /usr/ -type f -links +1 --> displays all files has more than 1 link!
+
+Hard link references the file's inode, soft link(symlink) references another file. If you delete hard link, the other file contents still in harddisk, however if you delete symlink, it will be useless or broken.
+
+ln -s /etc/passwd ./pswd --> -s option creates symlink, and you can see light blue color the link
+
+ps aux --> displays all running processes!
+ps aux > process.txt
+cat process.txt
+ln process.txt p.txt --> creates hard link
+ln -s process.txt symlink_p.txt --> creates soft link
+mv process.txt Desktop/ --> We can see the result for p.txt but not for symlink_p.txt (try with cat command. -Symlink is broken!)
+
+Symlinks are used more than hard links, for example web server apache2 use symlinks extensively in their configuration.
+we can create symlink for directory, we could not do in hard link! ln -s /etc/ etc-symlink
+symlinks have their own inode numbers which are different!
+symlinks have all permissions "lrwxrwxrwx" --> They are like shortcuts
