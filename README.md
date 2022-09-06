@@ -12,4 +12,4 @@
 [Navigation Commands](https://github.com/muratakgul/learning-linux/blob/master/Navigation%20Commands) <br/>
 [Creating Files & Folders Commands](https://github.com/muratakgul/learning-linux/blob/master/Creating%20Files%20%26%20Folder%20Commands) <br/>
 [Copying & Moving & Deleting](https://github.com/muratakgul/learning-linux/blob/master/Copying%20%26%20Moving%20%26%20Deleting) <br/>
-[System Utility Command](https://github.com/muratakgul/learning-linux/blob/master/System%20Utility%20Commands)
+[System Utility Commands](https://github.com/muratakgul/learning-linux/blob/master/System%20Utility%20Commands)
