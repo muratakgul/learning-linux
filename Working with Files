@@ -1,0 +1,52 @@
+
+cat /etc/host.conf --> displaying the contents of the specified file
+cat file1 file2 file3 --> we can display more than one file 
+cat /etc/passwd /etc/group --> we can display more than one file
+cat -n /etc/passwd --> displaying the line numbers with -n option
+cat filename1 filename2 > filename3 --> concatenating 2 files
+cat /etc/hosts /etc/host.conf > my_host.txt --> concatenating 2 files
+
+tac and rev commands will not change the file, they just display it!
+tac command --> reversing the result of cat vertically
+tac file1 --> reversing the order of each lines vertically
+rev file2 --> reversing the order of each line horizontally
+
+## viewing a file using less
+# less shortcuts:
+# h         => getting help
+# q         => quit
+# enter     => show next line
+# space     => show next screen
+# /string   => search forward for a string
+# ?string   => search backwards for a string
+# n / N     => next/previous appearance
+
+tail file1 --> showing the last 10 lines of a file
+tail -n 5 filename --> showing the last 5 lines of a file
+tail -f filename --> showing the last 10 lines of the file in real-time (-f option provides real-time)
+tail -f /var/log/auth.log (open another terminal and try to login with root and type wrong password and correct one to produce some real-time logs)
+CTRL+C ile çıkış yapılır.
+
+head file2 -->showing the first 10 lines of a file
+head -n 15 filename --> showing the first 15 lines of a file
+head -c 7 file2 --> showing the first 7 characters (bytes) of the specified file
+
+watch -n 3 -d ls -l --> running repeatedly a command with refresh of 3 seconds
+watch ls -- 2 check every 2 seconds to see created files real-time
+CTRL+C ile çıkış yapılır.
+
+wc --> number of lines words bytes all together
+wc -l --> number of lines
+wc -w --> number of words
+wc -c --> number of bytes
+wc -m --> number of characters
+"wc -c" and "wc -m" results are the same most of time.
+
+sort file2 --> sort by alphabetical order
+sort file -r --> sort by reverse order
+sort -n prices --> -n option provides the sort by numerical value order (otherwise 3.99 might seem bigger than 224)
+sort -nr prices --> reverse order by numerical value
+sort file3 -u --> removes duplicates, make it unique
+sort file3 -nk 2 --> sort by numerical order on second column
+sort file3 -n -k2 --> sort by numerical order on second column
+sort file3 -nk 2 -r --> sort by numerical order on second column in reverse order
