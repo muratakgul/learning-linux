@@ -6,7 +6,7 @@
 [File System Hierarchy (FSH)](https://github.com/muratakgul/learning-linux/blob/master/File%20System%20Hierarchy%20(FSH)) <br/>
 [Expansion & Wildcards](https://github.com/muratakgul/learning-linux/blob/master/Expansion%20and%20Wildcards) <br/>
 [Piping](https://github.com/muratakgul/learning-linux/blob/master/Piping) <br/>
-[Redirection](https://github.com/muratakgul/learning-linux/blob/master/Redirection) <br/>
+[Output Redirection](https://github.com/muratakgul/learning-linux/blob/master/Output%20Redirection) <br/>
 [Finding Things](https://github.com/muratakgul/learning-linux/blob/master/Finding%20Things) <br/>
 [Grep Command](https://github.com/muratakgul/learning-linux/blob/master/Grep%20Command) <br/>
 [Navigation Commands](https://github.com/muratakgul/learning-linux/blob/master/Navigation%20Commands) <br/>
