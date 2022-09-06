@@ -1,0 +1,17 @@
+
+date - current date and time will be displayed
+
+uptime - current system time, how long system is up, number of users logged in, the average CPU load
+
+hostname - your machine name
+
+uname - displays what type of flavors do you have -- uname -a provides more info
+
+which - displays command locations
+
+cal - displays calendar
+cal 2015 --> calendar for the year of 2015 
+cal 9 2018 --> displays Sept 2018
+cal -3 --> display calendar of previous, current and next month
+
+bc - basic calculater on the command screen
