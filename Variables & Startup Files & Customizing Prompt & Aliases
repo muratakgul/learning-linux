@@ -1,0 +1,63 @@
+
+The Environment
+Variables & Startup Files & Customizing Prompt & Aliases
+
+Viewing the Environment
+printenv --> displays all environment variable
+printenv | less
+
+echo $USER --> $ sign indicates this is a variable
+echo $HOME
+environment variables are case sensitive
+
+Defining variables:
+	variable=value
+	ex: animal=dog
+	echo $animal
+	printenv --> we will not see in the list variable called animal. Because this is shell variable. printenv displays environmnet variable.
+	When we create these variables they are kind of local variables like progamming language. They only exist current shell session.
+	num=748 for example
+	
+	export animal=monkey  --> If we start with export it will persist across everywhere -- on another shell and env variable area. Then we can see with printenv
+	person="Tom Hanks"
+	export person --> We can create a variable and then define with export command, and then we can export it too.
+
+Startup Files:	
+	When we log in, the shell reads information from startup files. 
+	First, the shell reads from global config files that effect the environment for all users. Then, the shell reads startup files for specific users.
+	PS1="type something -->" -> our prompt will change. But it will not be persistant. If we type bash, it is going to be previous prompt, and close the session, new session comes with the previous Prompt too
+	We can go to EZPROMPT website to customize our prompt.
+	~/.bashrc --> Change PS1 in this file to affect all session, make it persistant
+
+For login sessions:
+	/etc/profile -->global config for all users
+	~/.bash_profile -->user's personal config files
+	~/.bash_login --> read if bash_profile is not found
+	~/.profile --> used if previous two are not found
+
+For non-login sessions (Typical session when you launch the terminal via the GUI):
+	etc/bash.bashrc -->global config for all users
+	~/.bashrc --> specific settings for each users This is where we can define our own settings and configuration
+	source ~/.bashrc --> to take affect immediately instead of open new session to see the effect
+	
+cp .bashrc .bashrc.old --> before making change on this file, backup first :)
+
+
+Defining Aliases:
+	alias ll='ls -al'
+	alias dog='echo WUUFFF'
+	
+	type cd --> cd is a shell builtin
+	type touch --> touch is /usr/bin/touch
+	type dog --> dog is aliased to 'echo WUUFFF'
+	
+	alias ..='cd ..'
+	
+	All above aliases will be effective on current shell only. We need to define them in ~/.basrc file
+	
+	We can make the following ailases for better result for disk usage info: alias du='du -h'
+	
+We can find on the internet to get useful ailases such as:
+	alias rm="rm -vi" --> always ask when you delete something with -i option
+	alias pscpu10='ps auxf | sort -nr -k 3 | head -10' --> top ten cpu eaten processes
+	
