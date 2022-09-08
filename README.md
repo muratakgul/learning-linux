@@ -20,4 +20,5 @@
 [Variables & Startup Files & Customizing Prompt & Aliases](https://github.com/muratakgul/learning-linux/blob/master/Variables%20%26%20Startup%20Files%20%26%20Customizing%20Prompt%20%26%20Aliases) <br/>
 [Compare Commands](https://github.com/muratakgul/learning-linux/blob/master/Compare%20Commands) <br/>
 [User Account Management](https://github.com/muratakgul/learning-linux/blob/master/User%20Account%20Management) <br/>
-[Monitoring & Talking to Users](https://github.com/muratakgul/learning-linux/blob/master/Monitoring%20%26%20Talking%20to%20Users)
+[Monitoring & Talking to Users](https://github.com/muratakgul/learning-linux/blob/master/Monitoring%20%26%20Talking%20to%20Users) <br/>
+[root user (sudo & su)](https://github.com/muratakgul/learning-linux/blob/master/root%20user%20(sudo%20%26%20su))
