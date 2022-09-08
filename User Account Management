@@ -1,0 +1,75 @@
+
+User Account Management:
+	useradd
+	userdel
+	groupadd
+	groupdel
+	usermod
+
+All info about users are the following files:
+	/etc/passwd = users and info: username:x:uid:gid:comment:home_directory:login_shell
+	/etc/shadow = This file contains encrypted user password and password policy
+	/etc/group = All group and user group information
+	etc/gshadow = Group information with passwords
+	etc/login.defs = default options for the new user
+
+ 
+useradd OPTIONS:
+	-m --> create home directory
+	-d directory --> specify another home directory
+	-c --> "comment"
+	-s --> shell
+	-G --> specify the secondary groups (must exist)
+	-g --> specify the primary group (must exist)
+
+Exemple:
+	useradd -m -d /home/john -c "C++ Developer" -s /bin/bash -G sudo,adm,mail john
+
+
+changing a user account
+usermod OPTIONS --> uses the same options as useradd
+
+Example:
+	usermod -aG developers,managers john --> adding the user to two secondary groups
+
+
+deleting a user account
+	userdel -r username --> -r removes user's home directory as well (may not delete user's groups, consider deluser command and try)
+
+
+groupmod -n engineers engineering  --> to change the group name from engineering to engineers - renaming the group
+
+displaying all groups
+	cat /etc/groups
+
+displaying the groups a user belongs to
+	groups
+
+creating admin users
+	add the user to sudo group in Ubuntu and wheel group in CentOS
+	usermod -aG sudo john
+ 
+id user1 -> get the user info
+
+in cd /home list the users with ls command
+
+grep user1 /etc/group -- we can display only user1 with grep command
+
+useradd -e 2022-12-31 user2 --> expiration date for user wit -e option -- (for temporary users)
+chage -l user1 -->  for the account and expiration policy information
+	-L lock the user account
+	-U unlock the user account
+
+If we see /nologon or in/false at the end of lines in etc/passwd file, they are probably service or system accounts and they will not be able to login to the system
+
+passwd user1 --> to create a password or change the existing password
+
+useradd -G wheel user1 -- Wheel grubu üyesi değilse bu şekilde üye yapabiliriz. -aG mi yoksa -G yeterli mi bak
+sudo file can be modified with "visudo". We can add normal user under root but it is not recommended!!
+
+file  ./etc/sudoers ??
+
+groups -- displays the current user's groups that he or she member of
+groups root -- displays root's groups
+groups user1 -- displays user1's groups
+id -- displays current users id and primary group id and secondary groups that he or she member of
