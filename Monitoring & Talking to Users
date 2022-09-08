@@ -1,0 +1,38 @@
+
+## Monitoring Users ##
+who -H --> displays logged in users
+id --> displays the current user and its groups
+whoami --> displays EUID and who is current user
+
+w --> listing who’s logged in and what’s their current process. It is the same with "who" but provides a little bit more info than who
+
+last -->  printing information about the logins and logouts of the users
+
+last -u username
+
+who --> displays who are logged in to the system right now and which terminals are used by these users
+
+ 
+last --> display who logged in since day 1 to the date, who connect with whic IP address, when the machine rebooted, any unexpected shutdown
+last | less
+last user1 --> Display user1 logon and logoff info since day 1 to the date on the system
+last reboot --> displays all reboots on the system to the date
+last | awk '{print $1}' | sort | uniq --> select first column to get names, sort them and make unique
+
+Uptime -->displays system uptime information
+
+## Talking to Users ##
+
+Users command shows how many users logged-in to the system, displays all user names
+
+wall --> hit enter
+Type whatever you want for example; 
+"For maintenance purpose this system will be rebooted in 10 minutes, please save your work" 
+Then when you type CTRL+D, this message will arrive anyone who is logged-in to the system
+
+write
+to write a message to specific user who logged-in to the system
+write user2 -->hit enter
+"Hi user2, I need to shutdown system in 5 minutes" -->hit enter
+user2 can write back to user1 too
+
