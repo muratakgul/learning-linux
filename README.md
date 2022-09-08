@@ -19,4 +19,5 @@
 [Archive & Compress & Uncompress](https://github.com/muratakgul/learning-linux/blob/master/Archive%20%26%20Compress%20%26%20Uncompress) <br/>
 [Variables & Startup Files & Customizing Prompt & Aliases](https://github.com/muratakgul/learning-linux/blob/master/Variables%20%26%20Startup%20Files%20%26%20Customizing%20Prompt%20%26%20Aliases) <br/>
 [Compare Commands](https://github.com/muratakgul/learning-linux/blob/master/Compare%20Commands) <br/>
-[User Account Management](https://github.com/muratakgul/learning-linux/blob/master/User%20Account%20Management)
+[User Account Management](https://github.com/muratakgul/learning-linux/blob/master/User%20Account%20Management) <br/>
+[Monitoring & Talking to Users](https://github.com/muratakgul/learning-linux/blob/master/Monitoring%20%26%20Talking%20to%20Users)
