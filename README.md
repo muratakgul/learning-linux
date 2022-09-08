@@ -16,4 +16,5 @@
 [Working with Files](https://github.com/muratakgul/learning-linux/blob/master/Working%20with%20Files) <br/>
 [Hard Link and Soft Link (Symlink)](https://github.com/muratakgul/learning-linux/blob/master/Hard%20Link%20and%20Soft%20Link%20(Symlink)) <br/>
 [Software Package Management](https://github.com/muratakgul/learning-linux/blob/master/Software%20Package%20Management) <br/>
-[Archive & Compress & Uncompress](https://github.com/muratakgul/learning-linux/blob/master/Archive%20%26%20Compress%20%26%20Uncompress)
+[Archive & Compress & Uncompress](https://github.com/muratakgul/learning-linux/blob/master/Archive%20%26%20Compress%20%26%20Uncompress) <br/>
+[Variables & Startup Files & Customizing Prompt & Aliases](https://github.com/muratakgul/learning-linux/blob/master/Variables%20%26%20Startup%20Files%20%26%20Customizing%20Prompt%20%26%20Aliases)
