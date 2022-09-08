@@ -1,0 +1,35 @@
+
+## Running commands as root (sudo, su)
+
+
+running a command as root (only users that belong to sudo group [Ubuntu] or wheel [CentOS])
+	sudo command --> do it with root rights and exit right away
+	sudo su 	 --> Permanently enter root user with normal user's home directory
+	Exit 	   	 --> Exit from the root user to normal user
+	su - 		 --> switch user to root user and enter the root password
+	
+
+sudo examples:
+	Sudo adduser user1 -- Add new user
+	Sudo userdel user1 -- remove user, but not delete user files
+	Sudo userdel -r user1 -- remove user with it's all files
+	Su user1 -c "ls" -- Run ls command in user1 home directory
+	sudo passwd root	 --> setting the root password
+	Sudo passwd username --> changing a user's password
+
+
+sudo cat /etc/passwd --> show all users and user information
+Sudo cat /etc/shadow -- show all users and their encrypted passwords
+Sudo usermod -L user2 -- Lock user2, then user cannot enter or use its account
+Sudo usermod -U user2 -- Unlock user2
+ 
+Sudo groupadd group1 --> create new group
+Sudo usermod -G group1 user1 --> add user to group
+sudo cat /etc/group --> Check groups and information
+Sudo groupmod -n group2 group1 -- Change group name from group1 to group2
+Sudo groupdel group1 -- delete group
+
+If you enter root password with "sudo su" it keeps 5 minutes in the cache and you will be not asked for the password during this time and you can do administrative tasks
+We can extend 5 minutes time with "sudo -v" command
+If we do not want to remember password we can use "sufo -k" command, it will ask password immediately after this command if we try to do administrative task with sudo 
+
