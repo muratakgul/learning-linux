@@ -1,0 +1,59 @@
+
+The "cron" service allows us to schedule commands to run at regular intervals like:
+-Every 30 minutes
+-Every day at midnight
+-Every 1st of the month
+-Every December 15th
+
+Editing the crontab
+To set up a cron job, we need to edit the crontab configuration file.
+Rather than edit the files directly, it is better to use the "crontab -e" commands
+
+Place: /var/spool/cron/crontab
+
+crontab -e --> will open with text editor and we can write our job at the end of file and save it.
+
+Cron Syntax:
+
+	a		 b		 c		 d		 e		 command
+  Minute	Hour	Day		Month	Day(of the week)
+   0-59		0-23	1-31	1-12	0-6
+
+* * * * * command	--> Run a job every minute 
+30 * * * * command	--> Run a job every 30 minute
+0  0 * * * command	--> Run a job every day at midnight
+30 6 * * * command	--> Run a job everyday at 6:30 AM
+30 18* * * command	--> Run a job everyday at 6:30 PM
+30 6 * * 1 command	--> Run a job every Monday at 6:30 AM
+30 6 * 4 1 command	--> Run a job every Monday in April at 6:30 AM
+0  0 1 * * command	--> Run a job at midnight on the first of every month
+
+CRONTAB GURU website will help you to make some practise on cron time
+
+crontab -e -->  enter and type in crontab file below commands at the end of the file:
+ * * * * * echo "Another Minute! Date is: $(date)" >> ~/time.log	--> Runs this command every minute
+20 * * * * echo "It is 20 minutes past the hour!" >> ~/time.log	--> Runs this command every hour past 20 min.
+
+Handling Errors in a Cron Job:
+Our cron job is not working fine, we may probably see no error, nothing!
+If we have a complex cron job and we are not sure it is running correctly, we can send standart error(2) such as below:
+ * * * * * ecsdfho "Another Minute! Date is: $(date)" >> ~/time.log 2>&1 -->standard output and standard error will be sent to the same file.
+
+
+Schedule a backup task for every morning (Will backup all Desktop items)
+mkdir backups --> create a directory called backups under home directory
+nano my-backup --> create a file under backups directory called my-backup and type in there below script and then save it.
+	#!/bin/bash
+	DATE=$(date +%m-%d-%Y)
+	BACKUP_DIR="/home/makgul/backups"
+	
+	tar -cvzf $BACKUP_DIR/backup-$DATE.tar.gz /home/makgul/Desktop
+	
+Make it this file executable:
+	chmod +x my-backup
+
+Type "my-backup" and see the backup is created under /home/makgul/backups folder with the name of "backup-08-09-2022.tar.gz"
+
+In order to schedule it with cron:
+crontab -e --> enter and add below command at the end of file and save it. 
+0 3 * * * /home/makgul/bin/my-backup
