@@ -1,0 +1,9 @@
+
+sha25sum /usr/bin/ls ./ls --> gives sha numbers whether the same or not, displays as hash
+cmp /usr/bin/ls ./ls --> compare two objects and show the difference if there is
+diff file2 file3 --> shows the difference and line numbers to change
+diff -y /etc/ssh/sshd_config sshd_config | less -> compares two files on the screen with entire contents
+diff -i --> case insensitive
+diff -B --> ignore blank lines
+diff -w --> ignore white spaces
+diff -c --> more detailed comparison
